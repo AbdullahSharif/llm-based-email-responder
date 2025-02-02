@@ -23,6 +23,20 @@ class UserCreateInternal(SQLModel):
 
 # -------email request--------
 class EmailRequest(SQLModel):
+    user_input: str
+    reply_to : Optional[str] = Field(default=None)
+    context: Optional[str] = Field(default=True)
+    lenght: Optional[int] = Field(default=True)
+    tone: str
+
+
+# ------- email response--------
+class EmailResponse(SQLModel):
+    generated_email: str
+
+
+# --------- For internal manipulation --------
+class EmailLogCreate(SQLModel):
     user_id: int
     user_input: str
     reply_to : Optional[str] = Field(default=None)
@@ -33,6 +47,7 @@ class EmailRequest(SQLModel):
     timestamp: datetime = Field(
         default_factory=lambda: datetime.now("utc")
     )
+
 
 class EmailLogRead(SQLModel):
     user_id: int
