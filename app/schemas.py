@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from typing import Optional
 from sqlmodel import SQLModel, Field
@@ -23,10 +23,11 @@ class UserCreateInternal(SQLModel):
 
 # -------email request--------
 class EmailRequest(SQLModel):
+    user_id: int
     user_input: str
     reply_to : Optional[str] = Field(default=None)
-    context: Optional[str] = Field(default=True)
-    lenght: Optional[int] = Field(default=True)
+    context: Optional[str] = Field(default=None)
+    length: Optional[int] = Field(default=None)
     tone: str
 
 
@@ -40,12 +41,12 @@ class EmailLogCreate(SQLModel):
     user_id: int
     user_input: str
     reply_to : Optional[str] = Field(default=None)
-    context: Optional[str] = Field(default=True)
-    lenght: Optional[int] = Field(default=True)
+    context: Optional[str] = Field(default=None)
+    length: Optional[int] = Field(default=None)
     tone: str
     generated_email: str
     timestamp: datetime = Field(
-        default_factory=lambda: datetime.now("utc")
+        default_factory=lambda: str(datetime.now(tz=timezone.utc))
     )
 
 
@@ -53,11 +54,11 @@ class EmailLogRead(SQLModel):
     user_id: int
     user_input: str
     reply_to : Optional[str] = Field(default=None)
-    context: Optional[str] = Field(default=True)
-    lenght: Optional[int] = Field(default=True)
+    context: Optional[str] = Field(default=None)
+    length: Optional[int] = Field(default=None)
     tone: str
     generated_email: str
-    timestamp: datetime
+    timestamp: str
 
 
 

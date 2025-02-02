@@ -6,15 +6,17 @@ authors = [
     {name = "AbdullahSharif",email = "abdullah.29.umar@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<4.0"
 dependencies = [
-    "fastapi (>=0.115.8,<0.116.0)",
+    "fastapi[standard] (>=0.115.8,<0.116.0)",
     "sqlmodel (>=0.0.22,<0.0.23)",
     "openai (>=1.61.0,<2.0.0)",
     "aiosqlite (>=0.20.0,<0.21.0)",
     "greenlet (>=3.1.1,<4.0.0)",
     "python-jose (>=3.3.0,<4.0.0)",
-    "bcrypt (>=4.2.1,<5.0.0)"
+    "bcrypt (>=4.2.1,<5.0.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "fastcrud (>=0.15.5,<0.16.0)"
 ]
 
 

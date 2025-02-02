@@ -2,14 +2,14 @@ from sqlmodel import SQLModel, Field
 from typing import Optional
 from datetime import datetime
 
-class User(SQLModel):
+class User(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str = Field(..., min_length=2, max_length=30)
     username: str = Field(..., min_length=2, max_length=20)
     email: str
     hashed_password: str
 
-class EmailLog(SQLModel):
+class EmailLog(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     user_id: int = Field(foreign_key="user.id")
     user_input: str         # will define the user input
@@ -18,5 +18,5 @@ class EmailLog(SQLModel):
     length: Optional[int] = Field(default=None)  # the length of the response email.
     tone: str      # the tne of the email to be written.
     generated_email: str     # it will store the generated email.
-    timestamp: datetime
+    timestamp: str
 
