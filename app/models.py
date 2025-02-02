@@ -1,5 +1,6 @@
 from sqlmodel import SQLModel, Field
 from typing import Optional
+from datetime import datetime
 
 class User(SQLModel):
     id: Optional[int] = Field(default=None, primary_key=True)
@@ -17,5 +18,5 @@ class EmailLog(SQLModel):
     length: Optional[int] = Field(default=None)  # the length of the response email.
     tone: str      # the tne of the email to be written.
     generated_email: str     # it will store the generated email.
-    timestamp: str
+    timestamp: datetime
 
