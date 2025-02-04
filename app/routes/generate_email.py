@@ -2,9 +2,9 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from fastapi import APIRouter, Depends, HTTPException
-from .schemas import EmailRequest, EmailResponse, EmailLogCreate
-from .database import get_session
-from .crud import crud_email_log
+from ..schemas import EmailRequest, EmailResponse, EmailLogCreate
+from ..database import get_session
+from ..crud import crud_email_log
 
 
 
