@@ -8,3 +8,6 @@ You can add the following information as input to the api:
 
 ## response:
 - You will receive an email text as response.
+
+## Database 
+- SQL lite
